@@ -1,0 +1,204 @@
+﻿// This is the API written by Dave Dawes and released to
+// all Frumples scripters to explain how to interact with
+// the Frumples via code.  It is included here with his
+// permission, to aid in understanding the scripts.
+
+
+This notecard NOW covers Frumple and Egg API definitions
+============================================================================
+============================================================================
+
+
+
+This first section of the notecard covers three messages you can use to learn information about local frumples.
+SAY_PAIR_STATUS_DATA
+SAY_STATUS_DATA
+SAY_SELL_STATUS_DATA
+
+When communicating with the frumples, use the following channels:
+To talk to the frumples, use -853321960
+To hear the frumple's responses, use -853321961
+
+*** For any message requiring an owner UUID, you can send a NULL_KEY in its place, and have every owner's frumples respond.
+*** For any message requiring a frumple level, you can either exclude that argument (if its the last argument), provide a level number, or provide -1 to indicate all levels.
+*** The -1 for a level helps facilitate requesting the 4th argument, the Frumple ID #.
+
+The following describes the intended Frumple API data, as a response to the "SAY_PAIR_STATUS_DATA" message being received.
+When sending this message, identify in the message arguments the UUID of the owning avatar that should answer.  These arguments should be comma delimited.  You can optionally include a level # to help limit the number of responding frumples to the message.  If you add a level number, you can also optionally include a Frumple ID number.
+
+ex1: SAY_PAIR_STATUS_DATA,b5b3b81b-d112-494e-9052-e4490e8fe1b4
+The above example would ask for pairing status data of pairing frumples, owned by DaveDawes, of any level
+
+ex2: SAY_PAIR_STATUS_DATA,b5b3b81b-d112-494e-9052-e4490e8fe1b4,5
+The above example would ask for pairing status data of pairing frumples, owned by DaveDawes, that are level 5 frumples.
+
+ex3: SAY_PAIR_STATUS_DATA,NULL_KEY,-1, 110408
+The above example would ask for pairing status data of pairing frumples, owned by anyone, of any level, that have an ID number of 110408.
+
+
+This response message will be sent only to the originator using llRegionSayTo.  Note, the data will be delimited with \n (newline)
+PAIR_STATUS\n
+frumpleID\n
+frumpleType\n
+frumpleLevel\n
+FrumpleName\n
+ownerUUID\n
+frumpleState\n
+gridPattern\n
+pairingTimeRemaining\n
+eggsRemaining
+
+frumpleID will be the record number of the frumple, the same value reported from the Frumple ID menu button.
+frumpleType will be the type of frumple (Boy, PapuaNewGuinea, etc)
+frumpleLevel will be the level of that type of frumple (0-10)
+frumpleName will be the user assigned frumple name
+ownerUUID is the UUID of the frumple owner
+frumpleState will be either (Feeding, Pairing or Fertilizing)
+gridPattern will be an integer representing the on/off state of the grid.  
+    (meal 5, food 5 is the most significant bit) 
+    (meal 1, food 1 is the least significant bit)
+pairingTimeRemaining will be time remaining for pairing (in seconds) when the state is Pairing
+eggsRemaining is the number of eggs the frumple will still lay
+
+For a frumple with the following info:
+[11:43] Canada Frumple@80055@15: Canada - Level 3
+-
+Pairing Time Left - 3516
+-
+Manual Pairing - Waiting
+-
+1 - ■■□□□
+2 - □□■□□
+3 - □□□□□
+4 - ■□□■□
+5 - ■■□□□
+-
+Eggs Remaining - 5
+Status: Egg Ready
+
+The grid data would be:
+1101001000000010000011 in binary
+which would translate to 3440771 decimal
+
+The message would be:
+80055,Canada,3,,xxxxxx-xxx-xxxxxx-xx,Pairing,3440771,210960
+
+where the xxxxx section would be an actual avatar ID number
+
+============================================================================
+The following describes the system messages as a response to the "SAY_STATUS_DATA" message being received.
+When sending this message, identify in the message arguments the UUID of the owning avatar that should answer.  These arguments should be comma delimited.
+
+ex1: SAY_STATUS_DATA,b5b3b81b-d112-494e-9052-e4490e8fe1b4
+The above example would ask for status data of frumples in any mode, owned by DaveDawes, of any level
+
+ex2: SAY_STATUS_DATA,b5b3b81b-d112-494e-9052-e4490e8fe1b4,5
+The above example would ask for status data of frumples in any mode, owned by DaveDawes, that are level 5 frumples.
+
+ex3: SAY_STATUS_DATA,NULL_KEY,-1, 110408
+The above example would ask for status data of pairing frumples, owned by anyone, of any level, that have an ID number of 110408.
+
+
+This response message will be sent only to the originator using llRegionSayTo.  Note, the data will be delimited with \n (newline)
+STATUS\n
+frumpleID\n
+frumpleType\n
+frumpleLevel\n
+FrumpleName\n
+ownerUUID\n
+frumpleState\n
+gridPattern\n
+knownFavoritesPattern\n
+feedingTimeRemaining\n
+pairingTimeRemaining\n
+fertilizingTimeRemaining\n
+eggsRemaining\n
+eggsAborted
+
+frumpleID will be the record number of the frumple, the same value reported from the Frumple ID menu button.
+frumpleType will be the type of frumple (Boy, PapuaNewGuinea, etc)
+frumpleLevel will be the level of that type of frumple (0-10)
+frumpleName will be the user assigned frumple name
+ownerUUID is the UUID of the frumple owner
+frumpleState will be either (Feeding, Pairing or Fertilizing)
+gridPattern will be an integer representing the on/off state of the grid.  
+    (meal 5, food 5 is the most significant bit) 
+    (meal 1, food 1 is the least significant bit)
+knownFavoritesPattern will be an integer representing the on'off state of all known favorites.
+feedingTimeRemaining will be the time remaining until the next meal (in seconds) when the state is Feeding
+pairingTimeRemaining will be time remaining for pairing (in seconds) when the state is Pairing
+fertilizingTimeRemaining will be the time remaining for fertilizing (in seconds) when the state is Fertilizing
+eggsRemaining is the number of eggs the frumple will still lay
+eggsAborted is the number of aborted eggs the frumple has registered
+
+============================================================================
+
+The following describes the system messages as a response to the "SAY_SELL_STATUS_DATA" message being received.
+When sending this message, identify in the message arguments the UUID of the owning avatar that should answer.  These arguments should be comma delimited.
+
+ex1: SAY_SELL_STATUS_DATA,b5b3b81b-d112-494e-9052-e4490e8fe1b4
+The above example would ask any level of frumple being sold by DaveDawes to report their sales information.
+
+ex2: SAY_SELL_STATUS_DATA,b5b3b81b-d112-494e-9052-e4490e8fe1b4,5
+The above example would ask any level 5 frumples being sold by DaveDawes to report their sales information.
+
+ex3: SAY_SELL_STATUS_DATA,NULL_KEY,-1, 110408
+The above example would ask for frumple 110408, regardless of its level or owner, to report sales information if it exists.
+
+
+This response message will be sent only to the originator using llRegionSayTo.  Note, the data will be delimited with \n (newline)
+
+SELL_STATUS\n
+frumpleID\n
+frumpleType\n
+frumpleLevel\n
+FrumpleName\n
+ownerUUID\n
+frumpleState\n
+gridPattern\n
+knownFavoritesPattern\n
+feedingTimeRemaining\n
+pairingTimeRemaining\n
+fertilizingTimeRemaining\n
+eggsRemaining\n
+eggsAborted\n
+\n
+salePrice
+
+============================================================================
+Frumple Egg API Information
+============================================================================
+
+When communicating with the frumple eggs, use the following channels:
+To talk to the frumples, use -853321962
+To hear the frumple's responses, use -853321963
+
+*** For any message requiring an owner UUID, you can send a NULL_KEY in its place, and have every owner's frumples respond.
+*** For any message requiring an egg level, you can either exclude that argument (if its the last argument), provide a level number, or provide -1 to indicate all levels.
+*** The -1 for a level helps facilitate requesting the 4th argument, the egg ID #.
+
+The following describes the intended Egg API data, as a response to the "SAY_EGG_STATUS_DATA" message being received.
+When sending this message, identify in the message arguments the UUID of the owning avatar that should answer.  These arguments should be comma delimited.  You can optionally include a level # to help limit the number of responding eggs to the message.  If you add a level number, you can also optionally include an egg ID number.
+
+ex1: SAY_EGG_STATUS_DATA,b5b3b81b-d112-494e-9052-e4490e8fe1b4
+The above example would ask for  status data of eggs, owned by DaveDawes, of any level
+
+ex2: SAY_EGG_STATUS_DATA,b5b3b81b-d112-494e-9052-e4490e8fe1b4,5
+The above example would ask for status data of eggs, owned by DaveDawes, that are level 5 eggs.
+
+ex3: SAY_EGG_STATUS_DATA,NULL_KEY,-1, 110408
+The above example would ask for status data of eggs, owned by anyone, of any level, that have an ID number of 110408.
+
+
+This response message will be sent only to the originator using llRegionSayTo.  Note, the data will be delimited with \n (newline)
+EGG_STATUS\n
+eggID\n
+eggLevel\n
+ownerUUID\n
+preHatchFavoritesPattern\n
+salePrice\n
+
+In the above response, a salePrice of 0 means the egg is NOT for sale.
+
+Regards,
+Dave Dawes

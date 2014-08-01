@@ -1,0 +1,116 @@
+﻿
+Welcome to FrumpleBumper!  I hope this HUD will make your pairing easier, your eggs better, and your demi-gods more prolific, one frumpler to another!  ;)
+
+As always, please feel free to direct questions, comments, bug reports, and free chocolate to Rini Rampal.  This is a third-party product, unaffiliated with Dave, Dazza, or Twostars Games.
+
+Join the FrumpleBumpers in-world: secondlife:///app/group/c2ae8008-cf60-156c-0b2c-28652ff713f2/about
+
+􀀮
+
+
+---  SHORT VERSION  ---
+
+(aka the official Ann-proof way!)
+
+1 - RESET
+
+2 - Put in YOUR notecard (or select Scan from the menu)
+
+3 - Get someone else's notecard from the eHarmony group and put it in
+
+4 - Watch local chat for your matches!
+
+
+---  LONG VERSION  ---
+
+1) Wear your FrumpleBumper.
+
+    The best way to do this is to right-click and select Add.
+    
+2) Set up your initial options, if any.
+
+    For instance, if you are pairing for demi chances, then be sure to select the current Magic Number!
+    
+3) Drag YOUR notecard onto the HUD.
+
+    You can make this notecard by clicking on each of your frumples that is in pairing mode, going to the second page of the menu, and selecting 'Grid in Text'.  Once all of your frumples have said their grid in your local chat, just copy and paste the whole lump of chat into a notecard and save it.  I'll sort it out for you!
+
+    OR -- if you are on the same sim as your frumples, you can select Scan from the HUD menu to automatically load all of your pairable frumples!  Once loaded, you can pick Show Grids to print out all of your frumples for a notecard to share.
+
+    If your HUD turns green right away, it means that you have matches within your own notecard!
+
+4) Start pairing!
+
+    Try joining the Eharmony Frumple Edition group to collect notecards from other players!  When you get a notecard, simply drag it onto your HUD.  When a frumple grid is given in chat, simply click on your HUD and select 'Paste Grid' then copy and paste the text with the grid into the box given.
+
+    OR -- if you are on the same sim as pairable frumples, you can select Scan from the menu to check them automatically!
+
+    When your HUD turns green, it means you've found a match!  By default, your matches will be shown automatically as they are found (this is the AUTO setting in your menu).  They are also saved in your HUD for later review -- touch your HUD and select 'Show Pairs' to see the sorted list of matches found.  Each match will print in a handy side-by-side grid view that you can copy and paste right into your IM window!
+
+    Once you have IMed all of your matches, select 'Clear Pairs'.  The HUD will still remember YOUR frumples, but it will clear out old matches to make room for the new ones.
+
+5) Press RESET in the menu when you're done pairing.
+
+    This will delete your stored frumple grids and matches, making your HUD ready for a NEW notecard or scan after your next feeding cycle.  Your settings (Threshold, AUTO, etc) will be saved.
+
+
+---  ADDITIONAL DETAILS  ---
+
+*) The Colors
+
+    RED - Waiting for you to load YOUR frumple grids.
+    BLACK - Currently reading a notecard.  Yes, it's slow.  Blame SL.
+    BLUE - No matches waiting.  Try loading a fellow frumpler's notecard!
+    GREEN - Matches waiting!  Click 'Show Pairs' to see them!
+    
+    Note that while reading a notecard, your HUD will flash each time a match is found.  If you drag in several notecards at once, it will flash briefly to BLUE (no matches yet) or GREEN (yaaay, matches!) in between notecards, to let you know how it's going.
+
+*) Notecards
+
+    All notecards that you drag onto the HUD should be yes-copy and yes-modify.  The notecard will be deleted from the HUD (NOT from your inventory) as soon as it has been fully read.  Feel free to delete the notecard from your inventory as soon as it has been dragged in.
+
+    Be aware that notecards cannot be dragged into an RLV-locked HUD.  If you use the HUDLocker product to keep your HUDs in place when changing outfits, you will have to temporarily unlock it in order to add your notecards.
+
+*) Threshold
+
+    This special setting is the minimum number of matches you are interested in pairing for.  The HUD won't even mention a match for fewer boxes than you select as your threshold.  The default value is 3, but you may want to consider bumping it up to 4 or 5 to find only the best matches.
+
+*) Show (or Hide) Perfect
+
+If you choose to Show Perfect, then regardless of threshold, perfect matches for your frumples will still be shown.  For example, if your threshold is set at 3, but one of your frumples only has 2 found foods, then a match of 2 will still show for that frumple.
+
+*) Self-Pairing
+
+    You have three choices for how the FrumpleBumper deals with self-pairing as an option:
+
+   - Show None: If EITHER frumple can do the same or better by self-pairing, then the match is ignored.
+
+   - Show All: All matches that meet or beat your threshold are shown, regardless of how self-pairing might be better.
+
+   - Show Some: This is a happy compromise, in which SOME matches that are the same as self-pairing are shown, when they would be beneficial to the other party.  Matches that are WORSE than self-pairing are never shown with this option.
+
+*) Magic Number
+
+    If you are pairing for demi-god chances, then simply select the current magic number here and the FrumpleBumper will ONLY show you pairs that will have a chance of demi-god!  (Be sure to remove this option afterward to match up those that are too low for the current magic number!)
+
+*) AUTO
+
+    When this setting is turned on, pairs will be automatically printed as soon as they are found, even if the notecard is still being read.  If you turn this setting off, you will have to select Show Pairs from the menu to see your matches.
+
+*) Show Grids
+
+    This option lets you see YOUR frumples' grids, as they were read from your last notecard.  Just in case you've forgotten.  If you copy and paste these grids into a notecard, you can share it with other FrumpleBumper users!
+
+*) Positioning
+
+    Feel free to resize and move your HUD around on your screen.  You can even rez it in world if that makes you happier.  As long as you are able to touch it and drag your notecards into place, it will happily keep pairing up your frumples for you!
+
+*) Limits
+
+    The HUD will store up to 50 matches at a time for you to review with the 'Show Pairs' button.  The oldest matches will be deleted as needed to make room for new ones.
+
+    The HUD will store a theoretically limitless number of your frumples for matching at a time.  It has been tested up to 150 grids and should go to 300 or 500.  Note that the length of time required to load the full number from a notecard may be prohibitive, and some frumples may be dropped due to SL limitations when scanning large numbers.  If you encounter this issue, please let me know.
+
+*) Chat ON/OFF
+
+    Once you know what you're doing, you can use this option to turn local chat off, cutting down spam.  Your matches will still show in local chat, of course, but the little status messages will not -- you will HAVE to rely on the color of your HUD to figure out what's next!

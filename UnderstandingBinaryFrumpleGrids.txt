@@ -1,0 +1,62 @@
+﻿// This is a notecard I wrote up to help other scripters understand
+// the concept illustrated in GridConverter.lsl and used in several
+// of the other scripts here.  I include it, again, for reference.
+
+
+***  INTRODUCTION TO BINARY  ***
+
+First, if you don't understand what binary is, or you don't know what I mean when I say that 0110 in binary is 6 in decimal, read the first section of http://www.math.grin.edu/~rebelsky/Courses/152/97F/Readings/student-binary
+
+You don't need to go into math with binary numbers or even converting from decimal to binary, but just that FIRST section.  Really make sure you get it.  Understand what binary IS.  Then we can move on.  :)
+
+
+***  BINARY GRID CONCEPT  ***
+
+So.  Binary is composed of 1s and 0s, right?  We have a string of digits (bits), each of which can be either 1 or 0.  True or False.  ■ or □.  See where I'm going with this?
+
+Start with a single row.  The number 18 in binary is 10011.  Replace your 1s and 0s with boxes and you get ■□□■■.  Look familiar?  An SL integer has room for 32 bits, but we only need - pop quiz - how many?  25.  One per box.  :)
+
+
+***  THE TWIST  ***
+
+For reasons unknown to me, Dave decided to do his grids backwards.  He also left out the leading zeroes in his API example, which made it needlessly confusing.  I will paste the same example here WITH leading zeroes.
+
+So this grid:
+1 - ■■□□□
+2 - □□■□□
+3 - □□□□□
+4 - ■□□■□
+5 - ■■□□□
+
+Is this binary number:
+0001101001000000010000011
+
+This is merely the grid read right-to-left, bottom-to-top.
+
+
+***  BITWISE OPERATORS  ***
+
+Time for more background reading!  If you don't understand bitwise operations...  well, you need to!  Try http://en.wikipedia.org/wiki/Bitwise_operation
+
+At a minimum, you will need to understand the section on AND, as well as Logical Shift.  Don't worry about the "sign bit" as you look at shifting.  We will not use the sign bit for grids.
+
+
+***  THE LEAP TO GRIDS  ***
+
+Alright, now that you have that under your belt, we can move along.  LSL uses the & character as its bit-wise AND operator; the << and >> operators are used for a left shift and a right shift, respectively, with the number of bits to shift by supplied after the operator.
+
+So tell me, if your grid's integer is 3440771, how can we determine the first box in the grid?  By hand, we can convert it to binary and look at the last bit, right?  But we don't want to literally convert that integer to a binary string.  That would defeat the purpose of using integers!  No, we simply want to extract the last bit.
+
+3440771 & TRUE
+
+If that expression evaluates to TRUE (1), then our first box is a ■.  If it evaluates to FALSE (0), then our first box is a □.
+
+Now how about the second box?
+
+(3440771 >> 1) & TRUE
+
+Do you see what I did there?  By shifting our integer to the right, we discard that first box, and the least significant bit is now the SECOND box.
+
+Go ahead, read that over a few more times if you need to.  Play with it with a known grid, like 3440771 from Dave's API example.  See if you can get your code from there.
+
+If not..  ask.  :)
